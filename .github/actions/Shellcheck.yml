@@ -1,0 +1,3 @@
+action "Shellcheck" {
+  uses = "ludeeus/actions/shellcheck@master"
+}

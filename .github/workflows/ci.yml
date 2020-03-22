@@ -1,7 +1,0 @@
-on:
-	pull_request:
-    		branches: [ master ]
-
-- name: shellcheck
-  uses: ludeeus/action-shellcheck@0.1.0
-
