@@ -6,5 +6,3 @@ workflow "Shellcheck" {
     "Shellcheck",
   ]
 }
-
-branches: [ master ]
