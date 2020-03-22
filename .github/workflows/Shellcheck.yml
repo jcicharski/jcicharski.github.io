@@ -1,6 +1,8 @@
-workflow "Shellcheck" {
-  on = "push"
-  resolves = [
-    "Shellcheck",
-  ]
-}
+name:  Shellcheck"
+
+on: [push]
+
+jobs:
+  build:
+    steps:
+      - uses: actions/Shellcheck
