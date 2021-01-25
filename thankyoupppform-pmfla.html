@@ -1,0 +1,103 @@
+<html>
+<head>
+<!--  ----------------------------------------------------------------------  -->
+<!--  NOTE: Please add the following <META> element to your page <HEAD>.      -->
+<!--  If necessary, please modify the charset parameter to specify the        -->
+<!--  character set of your HTML page.                                        -->
+<!--  ----------------------------------------------------------------------  -->
+
+<META HTTP-EQUIV="Content-type" CONTENT="text/html; charset=UTF-8">
+
+<!--  ----------------------------------------------------------------------  -->
+<!--  NOTE: Please add the following <FORM> element to your page.             -->
+<!--  ----------------------------------------------------------------------  -->
+</META>
+<link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/mailtoharshit/CloudCast/master/src/salesforce-lightning-design-system-1.0.0/assets/styles/salesforce-lightning-design-system.min.css">
+
+<style>
+.ppp-container {
+	max-width: 853px;
+}
+
+.ppp-form {
+	align-items: center;
+    flex-flow: wrap;
+    display: flex;
+    margin-top:5px;
+    margin-bottom:5px;
+}
+
+.ppp-form-label {
+	width:30%;
+	font-size: 0.9rem;
+	margin-left: 15px;
+}
+
+.ppp-form-input {
+	width:50%;
+	font-size: 0.9rem;
+}
+
+.ppp-form-select {
+	width:100%;
+	height:30;
+}
+
+.ppp-form-submit {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.ppp-container > div > h2 {
+	font-size: 1.25rem;
+	margin-left: 15px;
+	margin-bottom:1rem;
+}
+
+input[type=submit] {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    text-align: center;
+    vertical-align: middle;
+    justify-content: center;
+    transition: border .15s linear;
+    background-color: #0070d2;
+    border: 1px solid #0070d2;
+    color: #fff;
+    background: transparent;
+    background-clip: border-box;
+    border-radius: .25rem;
+    line-height: 1.875rem;
+    color: #0070d2;
+}
+
+span > hr {
+	width:83%;
+}
+
+.required:after {
+    content:"*";
+    color: red;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+input[type=number] {
+    -moz-appearance:textfield; /* Firefox */
+}
+
+</style>
+</head>
+<body>
+<div class="ppp-container" id="ppp-form-container">
+	<div class="slds-form ppp-form">
+		<h2>Your submission is being processed.</h2>
+    </div>
+</div>
+</body>
+</html>
