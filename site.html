@@ -1,0 +1,244 @@
+<html>
+<head>
+<!--  ----------------------------------------------------------------------  -->
+<!--  NOTE: Please add the following <META> element to your page <HEAD>.      -->
+<!--  If necessary, please modify the charset parameter to specify the        -->
+<!--  character set of your HTML page.                                        -->
+<!--  ----------------------------------------------------------------------  -->
+
+<META HTTP-EQUIV="Content-type" CONTENT="text/html; charset=UTF-8">
+
+<!--  ----------------------------------------------------------------------  -->
+<!--  NOTE: Please add the following <FORM> element to your page.             -->
+<!--  ----------------------------------------------------------------------  -->
+</META>
+<link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/mailtoharshit/CloudCast/master/src/salesforce-lightning-design-system-1.0.0/assets/styles/salesforce-lightning-design-system.min.css">
+
+<style>
+.ppp-container {
+	max-width: 853px;
+}
+
+.ppp-form {
+	align-items: center;
+    flex-flow: wrap;
+    display: flex;
+    margin-top:5px;
+    margin-bottom:5px;
+}
+
+.ppp-form-label {
+	width:30%;
+	font-size: 0.9rem;
+	margin-left: 15px;
+}
+
+.ppp-form-input {
+	width:50%;
+	font-size: 0.9rem;
+}
+
+.ppp-form-select {
+	width:100%;
+	height:30;
+}
+
+.ppp-form-submit {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.ppp-container > div > h2 {
+	font-size: 1.25rem;
+	margin-left: 15px;
+	margin-bottom:1rem;
+}
+
+input[type=submit] {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    text-align: center;
+    vertical-align: middle;
+    justify-content: center;
+    transition: border .15s linear;
+    background-color: #0070d2;
+    border: 1px solid #0070d2;
+    color: #fff;
+    background: transparent;
+    background-clip: border-box;
+    border-radius: .25rem;
+    line-height: 1.875rem;
+    color: #0070d2;
+}
+
+span > hr {
+	width:83%;
+}
+
+.required:after {
+    content:"*";
+    color: red;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+input[type=number] {
+    -moz-appearance:textfield; /* Firefox */
+}
+
+</style>
+<script src="https://www.google.com/recaptcha/api.js"></script>
+<script>
+	function timestamp() { var response = document.getElementById("g-recaptcha-response"); if (response == null || response.value.trim() == "") {var elems = JSON.parse(document.getElementsByName("captcha_settings")[0].value);elems["ts"] = JSON.stringify(new Date().getTime());document.getElementsByName("captcha_settings")[0].value = JSON.stringify(elems); } } setInterval(timestamp, 500); 
+	function recaptcha_callback(){
+		document.getElementById("submitBtn").disabled = false;
+	}
+</script>
+</head>
+<body>
+<form action="https://test.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8" method="POST">
+<input type=hidden name='captcha_settings' value='{"keyname":"PMFLA","fallback":"true","orgId":"00DS0000003Vt1V","ts":""}'>
+<input type=hidden name="oid" value="00DS0000003Vt1V">
+<input type=hidden name="retURL" value="https://jcicharski.github.io/thankyoupppform-pmfla.html">
+
+<!--  ----------------------------------------------------------------------  -->
+<!--  NOTE: These fields are optional debugging elements. Please uncomment    -->
+<!--  these lines if you wish to test in debug mode.                          -->
+<!-- <input type="hidden" name="debug" value=0> -->
+<!-- <input type="hidden" name="debugEmail" value="jan.cicharski@toptal.com"> -->
+<!--  ----------------------------------------------------------------------  -->
+
+<!-- ADD REQUIRED to all inputs -->
+
+<!-- hidden PPP_Intake_Form__c --> 
+<input  id="00NS000000GHVC7" name="00NS000000GHVC7" type="hidden" value="1" />
+<!-- hidden Lead Source -->
+<input id="lead_source" name="lead_source" value="PPP - Referral" type="hidden" />
+
+<div class="ppp-container" id="ppp-form-container">
+	<div class="slds-form ppp-form">
+		<h2>Paycheck Protection Program Round 2</h2>
+	</div>
+	<div class="slds-form ppp-form">
+		<label class="slds-form-element__label ppp-form-label required" for="first_name">First Name:</label>
+		<div class="slds-form-element__control ppp-form-input">
+			<input id="first_name" maxlength="40" name="first_name" size="20" type="text" class="slds-input" required/>
+		</div>
+	</div>
+	<div class="slds-form ppp-form">
+		<label class="slds-form-element__label ppp-form-label required" for="last_name">Last Name:</label>
+		<div class="slds-form-element__control ppp-form-input">
+			<input id="last_name" maxlength="80" name="last_name" size="20" type="text" class="slds-input" required/>
+		</div>
+	</div>
+	<div class="slds-form ppp-form">
+		<label class="slds-form-element__label ppp-form-label required" for="company">Business Name:</label>
+		<div class="slds-form-element__control ppp-form-input">
+			<input id="company" maxlength="40" name="company" size="20" type="text" class="slds-input" required/>
+		</div>
+	</div>
+	<div class="slds-form ppp-form">
+		<label class="slds-form-element__label ppp-form-label required" for="phone">Phone:</label>
+		<div class="slds-form-element__control ppp-form-input">
+			<input id="phone" 
+			placeholder="### ### ####" 
+			maxlength="15" 
+			name="phone" 
+			size="20" 
+			type="text" 
+			class="slds-input"
+			oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');
+			if (this.value.length > (this.maxLength-5)) this.value = this.value.slice(0, this.maxLength-5);"
+			onblur="const regexDigit = /^\d{10}$/g;
+            if (typeof this.value === 'string' && this.value.match(regexDigit)) {
+                this.value = '(' + this.value.substring(0, 3) + ') ' + this.value.substring(3,6) + '-' + this.value.substring(6, 10);
+			}"
+			onfocus="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
+			pattern=".{10,}"
+			required/>
+		</div>
+	</div>
+	<div class="slds-form ppp-form">
+		<label class="slds-form-element__label ppp-form-label required" for="mobile">Mobile Phone:</label>
+		<div class="slds-form-element__control ppp-form-input">
+			<input 
+			id="mobile" 
+			placeholder="### ### ####" 
+			maxlength="15" 
+			name="mobile" 
+			size="20" 
+			type="text" 
+			oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');
+			if (this.value.length > (this.maxLength-5)) this.value = this.value.slice(0, this.maxLength-5);"
+			onblur="const regexDigit = /^\d{10}$/g;
+            if (typeof this.value === 'string' && this.value.match(regexDigit)) {
+                this.value = '(' + this.value.substring(0, 3) + ') ' + this.value.substring(3,6) + '-' + this.value.substring(6, 10);
+			}"
+			onfocus="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
+			class="slds-input"
+			pattern=".{10,}"
+			required/>
+		</div>
+	</div>
+	<div class="slds-form ppp-form">
+		<label class="slds-form-element__label ppp-form-label required" for="email">Email:</label>
+		<div class="slds-form-element__control ppp-form-input">
+			<input id="email" maxlength="80" name="email" size="20" type="email" class="slds-input" 
+			pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+			required/>
+		</div>
+	</div>
+
+	<div class="slds-form ppp-form">
+		<label class="slds-form-element__label ppp-form-label required" for="00NS000000GHVCC">Average Monthly Revenue:</label>
+		<div class="slds-form-element__control ppp-form-input">
+			<select id="00NS000000GHVCC" name="00NS000000GHVCC" title="PPP Average Monthly Revenue" class="ppp-form-select" required>
+			<option value="">--None--</option>
+			<option value="$0-$10,000">$0-$10,000</option>
+			<option value="$10,000-$50,000">$10,000-$50,000</option>
+			<option value="$50,000-$100,000">$50,000-$100,000</option>
+			<option value="$100,000-$250,000">$100,000-$250,000</option>
+			<option value="$250,0000-$500,000">$250,0000-$500,000</option>
+			<option value="$500,000-$1m">$500,000-$1m</option>
+			<option value="$1m+">$1m+</option>
+			</select>
+		</div>
+	</div>
+
+	<div class="slds-form ppp-form">
+		<label class="slds-form-element__label ppp-form-label required" for="00N1U00000VyL1n"><span>How much funding did you <br>receive from PPP Round 1?</span></label>
+		<div class="slds-form-element__control ppp-form-input">
+			<select  id="00N1U00000VyL1n" name="00N1U00000VyL1n" title="Applied Round 1?" class="ppp-form-select" required>
+			<option value="">--None--</option>
+			<option value="Didn’t Apply">Didn’t Apply</option>
+			<option value="Applied but didn’t receive funding">Applied but didn’t receive funding</option>
+			<option value="$0-$50,000">$0-$50,000</option>
+			<option value="$50,000-$100,000">$50,000-$100,000</option>
+			<option value="$100,000-$250,000">$100,000-$250,000</option>
+			<option value="$250,0000-$500,000">$250,0000-$500,000</option>
+			<option value="$500,000-$1m">$500,000-$1m</option>
+			<option value="$1m-$2m">$1m-$2m</option>
+			<option value="$2m+">$2m+</option>
+			</select>
+		</div>
+	</div>
+	<span style="width:20%;"><hr></span>
+	<!-- <div class="slds-form ppp-form">
+		<label class="slds-form-element__label ppp-form-label required" for="captcha">Verification:</label>
+		<div class="slds-form-element__control ppp-form-input">
+			<div class="g-recaptcha" data-sitekey="6LfX3zQaAAAAAIZmatg3few-t5WtqmzoW2Gem4xS" data-callback="recaptcha_callback"></div><br>
+		</div>
+	</div> -->
+	<div class="ppp-form-submit">
+		<input type="submit" name="Submit" id="submitBtn">
+	</div>
+</div>
+
+</form>
+</body>
+</html>
